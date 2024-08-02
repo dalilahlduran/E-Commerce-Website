@@ -1,7 +1,5 @@
 # E-Commerce-Website
 
-# User Story
-
 # AS A USER (NOT LOGGED IN), I SHOULD BE ABLE TO:
 Access the website via the Internet so I can browse and read reviews.
 View details for a specific reviewed item (store, restaurant, product, book, etc.)
