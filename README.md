@@ -1,8 +1,8 @@
 # E-Commerce-Website
 
-#User Story
+# User Story
 
-#AS A USER (NOT LOGGED IN), I SHOULD BE ABLE TO:
+# AS A USER (NOT LOGGED IN), I SHOULD BE ABLE TO:
 Access the website via the Internet so I can browse and read reviews.
 View details for a specific reviewed item (store, restaurant, product, book, etc.)
 I should be able to see the item’s average score or rating.
@@ -11,7 +11,7 @@ Search for specific items, so I can see their scores and read reviews about them
 Sign up for an account so I can have a logged-in experience.
 Log in to the site if I already have an account.
 
-#AS A LOGGED-IN USER, I SHOULD BE ABLE TO:
+# AS A LOGGED-IN USER, I SHOULD BE ABLE TO:
 Write and submit a review for an item that includes:
 A written text review
 A score/rating
