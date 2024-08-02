@@ -1,5 +1,7 @@
 # E-Commerce-Website
 
+https://github.com/users/dalilahlduran/projects/2/views/1 
+
 # AS A USER (NOT LOGGED IN), I SHOULD BE ABLE TO:
 Access the website via the Internet so I can browse and read reviews.
 View details for a specific reviewed item (store, restaurant, product, book, etc.)
