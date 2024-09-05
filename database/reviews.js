@@ -6,24 +6,26 @@ const createReview = (reviewData) => {
     })
 };
 
-const findAllReviews = (review_id) => {
-    return prisma.reviews.findMany({
-        where: {review_id}
+const updateReview = (id, reviewData) => {
+    return prisma.reviews.update({
+        where: {review_id: id},
+        data: reviewData,
     })
 };
 
-const findReviewbyId = (reviews_id) => {
+const findReviewbyId = (review_id) => {
     return prisma.reviews.findUnique({
         where: (review_id)
     })
 };
 
-const findReviewbyScore = (score) => {
-    return prisma.reviews.findUnique({
-        where: {score},
-    })
+const deleteReview = async (id) => {
+    const review = await findReviewbyId(id);
+    if (review){
+        return prisma.review.delete({
+            where: { review_id: id},
+        });
+    }
 };
 
-const deleteReview
-
-module.exports = {createReview, findReviewbyId, findReviewbyScore, findAllReviews}; 
+module.exports = {createReview, findReviewbyId, updateReview, deleteReview}; 
