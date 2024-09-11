@@ -1,5 +1,7 @@
 # E-Commerce-Website
 
+This pull request contains both the FE and BE work
+
 https://github.com/users/dalilahlduran/projects/2/views/1 
 
 # AS A USER (NOT LOGGED IN), I SHOULD BE ABLE TO:
