@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useGetItemByIdQuery, useDeleteItemMutation } from "../redux/api";
 //component
-import ItemForm from "./ItemForm";
+// import ItemForm from "./ItemForm";
 
 function ItemDetail({ item_id, setItemSelected, token }) {
   const [isEditing, setIsEditing] = useState(false);
