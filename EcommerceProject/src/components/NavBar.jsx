@@ -5,8 +5,9 @@ function NavBar ({ token }) {
 
     return (
         <nav>
-            <NavLink to="/home">Home</NavLink>
-            <NavLink to="/register">Login/Signup</NavLink>
+            <NavLink to="/home">Home</NavLink>  | 
+            <NavLink to="/register">Login/Signup</NavLink> | 
+            <NavLink to="/items">Items</NavLink>
         </nav>
     );
 }

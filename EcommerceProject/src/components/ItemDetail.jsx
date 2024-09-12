@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { useGetItemByIdQuery, useDeleteItemMutation } from "../redux/api";
+import { useGetItemByIdQuery } from "../redux/api";
 //component
 // import ItemForm from "./ItemForm";
 
 function ItemDetail({ item_id, setItemSelected, token }) {
   const [isEditing, setIsEditing] = useState(false);
-  const [deleteItem] = useDeleteItemMutation();
   let item = {};
 
   const removeItem = async () => {
