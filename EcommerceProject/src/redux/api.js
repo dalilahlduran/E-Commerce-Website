@@ -3,9 +3,9 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const item_api = createApi({
   reducerPath: "item_api",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:5173",
+    baseUrl: "http://localhost:8080",
   }),
-  tagTypes: ["user", "items", "reviews", "comments"]
+  tagTypes: ["user", "items", "reviews", "comments"],
   endpoints: (builder) => ({
     register: builder.mutation({
       query: (body) => ({
@@ -16,7 +16,7 @@ export const item_api = createApi({
     }),
     login: builder.mutation({
         query: (body) => ({
-            url: "/auth/login"
+            url: "/auth/login",
             method: "POST",
             body,
         }),
@@ -28,7 +28,7 @@ export const item_api = createApi({
                 authorization: `Bearer ${token}`,
             },
         }),
-        providesTags: ["items"],
+        providesTags: ["items"]
     }),
     getItemById: builder.query({
         query: ({ token, id }) => ({
@@ -123,7 +123,6 @@ export const item_api = createApi({
     }),
   }),
 });
-
 
 export const { 
     useRegisterMutation,

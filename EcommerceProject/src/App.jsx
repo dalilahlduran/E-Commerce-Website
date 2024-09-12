@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-route-dom";
+import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 
 import Home from "./components/Home";
@@ -24,6 +24,8 @@ function App() {
       <Route path="/comments" element={<CommentList token={token}/>}/>
     </Routes>
     <h1>ECommerce Website</h1>
+    <p>Help the world with your opinion!<br></br>
+    Use the Ecommerce Reviews website to find all your favorite products and leave reviews, as well as comment on other people's thoughts.</p>
    </div>
   );
 }
