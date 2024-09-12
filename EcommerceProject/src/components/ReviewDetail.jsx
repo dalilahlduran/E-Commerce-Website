@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useGetReviewByIdQuery, useDeleteReviewMutation } from "../redux/api";
 //component
-import ReviewForm from "./ReviewForm";
+// import ReviewForm from "./ReviewForm";
 
 function ReviewDetail({ review_id, setReviewSelected, token }) {
   const [isEditing, setIsEditing] = useState(false);

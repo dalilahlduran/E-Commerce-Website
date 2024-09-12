@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useGetCommentByIdQuery, useDeleteCommentMutation } from "../redux/api";
 //component
-import CommentForm from "./CommentForm";
+// import CommentForm from "./CommentForm";
 
 function CommentDetail({ comment_id, setCommentSelected, token }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -32,7 +32,7 @@ function CommentDetail({ comment_id, setCommentSelected, token }) {
     return <p>Loading...</p>;
   }
 
-  const { comment, review_id, author_id } = comment;
+  const { txt, review_id, author_id } = comment;
   return (
     <div>
       <a onClick={() => setCommentSelected(null)}> Back</a>
