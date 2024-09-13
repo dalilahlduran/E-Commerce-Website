@@ -8,13 +8,18 @@ import ItemList from "./components/ItemList";
 import ReviewList from "./components/ReviewList";
 import CommentList from "./components/CommentList";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+
 import './App.css'
 
 function App() {
   const [token, setToken] = useState(null);
 
   return (
-   <div>
+    <div>
     <NavBar token={token} setToken={setToken}/>
     <Routes>
       <Route path="/home" element={<Home />} />
@@ -22,10 +27,7 @@ function App() {
       <Route path="/items" element={<ItemList token={token}/>}/>
       <Route path="/reviews" element={<ReviewList token={token}/>}/>
       <Route path="/comments" element={<CommentList token={token}/>}/>
-    </Routes>
-    <h1>ECommerce Website</h1>
-    <p>Help the world with your opinion!<br></br>
-    Use the Ecommerce Reviews website to find all your favorite products and leave reviews, as well as comment on other people's thoughts.</p>
+      </Routes>
    </div>
   );
 }

@@ -1,0 +1,11 @@
+.head-text {
+    position: relative;
+    padding-top: 30px;
+ }
+ .text-on-image {
+   position: absolute;
+   text-align: center;
+   right: 15%;
+   left: 20%;
+   bottom: 82%;
+ }

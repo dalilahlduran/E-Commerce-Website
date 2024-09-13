@@ -8,12 +8,14 @@ function ItemList({ token }) {
   const [itemSelected, setItemSelected] = useState(null);
   const { data, isLoading, error } = useGetItemsQuery(token);
 
-  const items = data?.items;
+  const items = data?.allItems;
+
+  console.log(items)
 
   if (itemSelected) {
     return (
       <ItemDetail
-        item_id={itemSelected.item_id}
+        item_id={itemSelected.id}
         setItemSelected={setItemSelected}
         token={token}
       />
@@ -25,15 +27,15 @@ function ItemList({ token }) {
       <h2>Items</h2>
       {isLoading ? <p>Loading...</p> : <span />}
       {error ? <p>Oops! Something went wrong</p> : <span />}
-      <button onClick={() => navigate("/addReview")}>Add A Review</button>
+      {/* <button onClick={() => navigate("/addReview")}>Add A Review</button> */}
       {items &&
         items.map((item) => (
-          <div className="item_card" key={item.item_id}>
+          <div className="item_card" key={item.id}>
             <button onClick={() => setItemSelected(item)}>
-              <img src={item.img_url} />
+              {/* <img src={item.img_url} /> */}Click to see more
             </button>
-            <p>Score: {item.score} </p>
-            <p>txt: {item.txt}</p>
+            <p>Name: {item.name} </p>
+            <p>Description: {item.description}</p>
           </div>
         ))}
     </div>

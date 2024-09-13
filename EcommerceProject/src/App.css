@@ -1,8 +1,62 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.article {
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: grid;
+  place-items: center;
+}
+
+.header {
+  font-size: 80px;
+  color: white;
   text-align: center;
+}
+
+il {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 22rem;
+  text-align: center;
+  background-image: url("https://media.istockphoto.com/id/1364257494/photo/five-stars-favorite-rating-social-media-speech-bubbles.jpg?s=612x612&w=0&k=20&c=2U5RtiWfiyV6ImPbA7fIT7_Eg0de51lEVU3BcgXLHZQ=");
+  background-repeat: no-repeat;
+  height: 100%;
+  color: black;
+  background-color:#888;
+}
+
+.app-image {
+  background-image: url("https://media.istockphoto.com/id/1340698106/vector/5-stars-rating-review-high-quality-and-good-business-reputation-customer-feedback-or-credit.jpg?s=612x612&w=0&k=20&c=r2ab5dbqQMdjmBWGFIzBvgNYt1Oa849Q3gQrBHvr2W4=");
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: auto;
+
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
 }
 
 .logo {
