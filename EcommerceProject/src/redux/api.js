@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const item_api = createApi({
   reducerPath: "item_api",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:8080",
+    baseUrl: "http://localhost:8081",
   }),
   tagTypes: ["user", "items", "reviews", "comments"],
   endpoints: (builder) => ({
@@ -23,7 +23,7 @@ export const item_api = createApi({
     }),
     getItems: builder.query({
         query: (token) => ({
-            url: "/api/items",
+            url: "/routes/items",
             headers: {
                 authorization: `Bearer ${token}`,
             },
@@ -32,7 +32,7 @@ export const item_api = createApi({
     }),
     getItemById: builder.query({
         query: ({ token, id }) => ({
-            url: `/api/plants/${id}`,
+            url: `/routes/items/${id}`,
             headers: {
                 authorization:`Bearer ${token}`,
             },
@@ -41,7 +41,7 @@ export const item_api = createApi({
     }),
     getReviewById: builder.query({
       query: ({ token, item_id }) => ({
-        url: `/api/reviews/${item_id}`,
+        url: `/routes/reviews/${item_id}`,
         headers: {
           authorization: `Bearer ${token}`,
         },
@@ -50,7 +50,7 @@ export const item_api = createApi({
     }),
     createReview: builder.mutation({
       query: ({ token, body }) => ({
-        url: "/api/reviews",
+        url: "/routes/reviews",
         method: "POST",
         headers: {
           authorization: `Bearer ${token}`,
@@ -61,7 +61,7 @@ export const item_api = createApi({
     }),
     updateReview: builder.mutation({
       query: ({ id, token, body }) => ({
-        url: `/api/reviews/${id}`,
+        url: `/routes/reviews/${id}`,
         method: "PUT",
         headers: {
           authorization: `Bearer ${token}`,
@@ -72,7 +72,7 @@ export const item_api = createApi({
     }),
     deleteReview: builder.mutation({
       query: ({ id, token }) => ({
-        url: `/api/reviews/${id}`,
+        url: `/routes/reviews/${id}`,
         method: "DELETE",
         headers: {
           authorization: `Bearer ${token}`,
@@ -82,7 +82,7 @@ export const item_api = createApi({
     }),
     getCommentById: builder.query({
       query: ({ token, review_id }) => ({
-        url: `/api/comments/${review_id}`,
+        url: `/routes/comments/${review_id}`,
         headers: {
           authorization: `Bearer ${token}`,
         },
@@ -91,7 +91,7 @@ export const item_api = createApi({
     }),
     createComment: builder.mutation({
       query: ({ token, body }) => ({
-        url: "/api/comments",
+        url: "/routes/comments",
         method: "POST",
         headers: {
           authorization: `Bearer ${token}`,
@@ -102,7 +102,7 @@ export const item_api = createApi({
     }),
     updateComment: builder.mutation({
       query: ({ id, token, body }) => ({
-        url: `/api/comments/${id}`,
+        url: `/routes/comments/${id}`,
         method: "PUT",
         headers: {
           authorization: `Bearer ${token}`,
@@ -113,7 +113,7 @@ export const item_api = createApi({
     }),
     deleteComment: builder.mutation({
       query: ({ id, token }) => ({
-        url: `/api/comments/${id}`,
+        url: `/routes/comments/${id}`,
         method: "DELETE",
         headers: {
           authorization: `Bearer ${token}`,

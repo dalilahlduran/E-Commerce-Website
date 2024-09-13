@@ -13,9 +13,9 @@ const updateReview = (id, reviewData) => {
     })
 };
 
-const findReviewbyId = (review_id) => {
-    return prisma.reviews.findUnique({
-        where: (review_id)
+const findReviewbyId = (item_id) => {
+    return prisma.reviews.findMany({
+        where: {item_id}
     })
 };
 

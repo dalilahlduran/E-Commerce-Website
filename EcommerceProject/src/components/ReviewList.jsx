@@ -1,14 +1,16 @@
 import { useState } from "react";
-import { useGetItemsQuery } from "../redux/api";
+import { useGetItemsQuery, useGetReviewByIdQuery } from "../redux/api";
 import { useNavigate } from "react-router-dom";
 import ReviewDetail from "./ReviewDetail";
 
-function ReviewList({ token }) {
+function ReviewList({ token, item_id}) {
   const navigate = useNavigate();
   const [reviewSelected, setReviewSelected] = useState(null);
-  const { data, isLoading, error } = useGetReviewsQuery(token);
+  const { data, isLoading, error } = useGetReviewByIdQuery({token, item_id});
 
-  const reviews = data?.reviews;
+  const reviews = data?.itemId;
+
+  console.log(data)
 
   if (reviewSelected) {
     return (
@@ -22,18 +24,18 @@ function ReviewList({ token }) {
 
   return (
     <div>
-      <h2>Reviews</h2>
+      <button onClick={() => navigate("/addReview")}>Add A Review</button>
+      <h4>Reviews</h4>
       {isLoading ? <p>Loading...</p> : <span />}
       {error ? <p>Oops! Something went wrong</p> : <span />}
-      <button onClick={() => navigate("/addReview")}>Add A Revie</button>
       {reviews &&
         reviews.map((review) => (
           <div className="review_card" key={review.review_id}>
-            <button onClick={() => setReviewSelected(review)}>
+            {/* <button onClick={() => setReviewSelected(review)}>
               <img src={review.img_url} />
-            </button>
-            <p>Score: {item.score} </p>
-            <p>txt: {item.txt}</p>
+            </button> */}
+            <p>Score: {review.score} </p>
+            <p>Description: {review.txt}</p>
           </div>
         ))}
     </div>

@@ -1,15 +1,21 @@
-import review_img from "../img/reviews.jpg"
+import review_img from "../img/reviews.jpg";
+import '../styles/Home.css';
 
 function Home() {
     return (
-        <section>
-            <h1>ECommerce Website</h1>
-            <img src={review_img}/>
+        <header>
+            <div className = "head-text">
+            <div className = "head-image">
+                <img src={review_img} alt="Background"/>
+            </div>
+            <div class='text-on-image'>
+            <h3>Help the world with your opinion! </h3>
             <p>
-                Help the world with your opinion! 
-                Use the Ecommerce Reviews website to find all your favorite products and leave reviews, as well as comment on other people's thoughts.
+                Use Pickle to rate all your favorite products and help the world find quality by providing your truth. Pickle it!
             </p>
-        </section>
+            </div>
+            </div>
+        </header>
     );
 }
 

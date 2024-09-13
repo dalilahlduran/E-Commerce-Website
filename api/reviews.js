@@ -1,7 +1,7 @@
 const express = require("express");
 const reviewRouter =  express.Router();
 const {createReview, findReviewbyId, updateReview, deleteReview} = require("../database/reviews.js");
-cont { checkReviewData } = require("./utils");
+// const { checkReviewData } = require("./utils");
 
 reviewRouter.post("/", async (req, res) => {
     try{
