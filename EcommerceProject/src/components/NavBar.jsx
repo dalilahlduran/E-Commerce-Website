@@ -15,7 +15,7 @@ function NavBar ({ token }) {
     console.log("NavBar token", token);
 
     return (
-        <Navbar bg="dark" data-bs-theme="dark" sticky="top">
+        <Navbar bg="dark" data-bs-theme="dark">
         <Container>
         <Navbar.Brand href="home">Pickle</Navbar.Brand>
         <Nav className="me-auto">

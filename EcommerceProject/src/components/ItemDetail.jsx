@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useGetItemByIdQuery } from "../redux/api";
 import ReviewList from "./ReviewList";
+import CommentList from "./CommentList";
+import Button from 'react-bootstrap/Button';
 //component
 // import ItemForm from "./ItemForm";
 
@@ -37,12 +39,15 @@ function ItemDetail({ item_id, setItemSelected, token }) {
   const { name, description, img_url } = item;
   return (
     <div>
-      <button><a onClick={() => setItemSelected(null)}> Back</a></button>
+      <Button><a onClick={() => setItemSelected(null)}> Back</a></Button>
       <div>
-        <h2>Item Name: {name}</h2>
-        <p>Item Description: {description}</p>
+        <h2>Name: {name}</h2>
+        <p>Description: {description}</p>
         {/* <img src={img_url} /> */}
-        <ReviewList token={token} item_id={item.id}></ReviewList>
+        <ReviewList token={token} item_id={item.id}>
+        <CommentList token={token} item_id={item.id}>
+        </CommentList>
+        </ReviewList>
       </div>
     </div>
   );

@@ -1,4 +1,6 @@
 import review_img from "../img/reviews.jpg";
+import logo from "../img/Pickle-Logo.svg";
+import logo2 from "../img/Pickle.svg";
 import '../styles/Home.css';
 
 function Home() {
@@ -6,7 +8,7 @@ function Home() {
         <header>
             <div className = "head-text">
             <div className = "head-image">
-                <img src={review_img} alt="Background"/>
+                <img src={logo} alt="Background"/>
             </div>
             <div class='text-on-image'>
             <h3>Help the world with your opinion! </h3>
