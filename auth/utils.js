@@ -1,4 +1,4 @@
-const { findUserByUsername } = require("../database/users.js");
+const { findUserbyUsername } = require("../database/users.js");
 
 const checkUserData = (req, res, next) => {
   const { username, password } = req.body;
@@ -13,7 +13,7 @@ const checkUserData = (req, res, next) => {
 };
 
 const checkUser = async (req, res, next) => {
-  const oldUser = await findUserByUsername(req.body.username);
+  const oldUser = await findUserbyUsername(req.body.username);
 
   if (oldUser) {
     return res.status(400).send({ message: "That username is already taken" });

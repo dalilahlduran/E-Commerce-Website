@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useGetItemsQuery, useGetReviewByIdQuery } from "../redux/api";
 import { useNavigate } from "react-router-dom";
 import ReviewDetail from "./ReviewDetail";
+import Register from "./Register";
+import ReviewForm from "./ReviewForm";
 
 function ReviewList({ token, item_id}) {
   const navigate = useNavigate();
@@ -24,7 +26,7 @@ function ReviewList({ token, item_id}) {
 
   return (
     <div>
-      <button onClick={() => navigate("/addReview")}>Add A Review</button>
+      {/* <button onClick={() => navigate("/routes/reviews")}>Add A Review</button> */}
       <h4>Reviews</h4>
       {isLoading ? <p>Loading...</p> : <span />}
       {error ? <p>Oops! Something went wrong</p> : <span />}
@@ -34,8 +36,9 @@ function ReviewList({ token, item_id}) {
             {/* <button onClick={() => setReviewSelected(review)}>
               <img src={review.img_url} />
             </button> */}
-            <p>Score: {review.score} </p>
-            <p>Description: {review.txt}</p>
+            <p><b>Score:</b> {review.score} </p>
+            <p><b>Review Description:</b> {review.txt}</p>
+            <ReviewForm></ReviewForm>
           </div>
         ))}
     </div>

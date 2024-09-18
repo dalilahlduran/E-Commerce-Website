@@ -9,14 +9,14 @@ export const item_api = createApi({
   endpoints: (builder) => ({
     register: builder.mutation({
       query: (body) => ({
-        url: "/auth/register",
+        url: "/routes/auth/register",
         method: "POST",
         body,
       }),
     }),
     login: builder.mutation({
         query: (body) => ({
-            url: "/auth/login",
+            url: "/routes/auth/login",
             method: "POST",
             body,
         }),

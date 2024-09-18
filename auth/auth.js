@@ -1,7 +1,7 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { createUser, findUserByUsername } = require("../database/users.js");
+const { createUser, findUserbyUsername } = require("../database/users.js");
 const { checkUserData, checkUser } = require("./utils.js");
 
 const authRouter = express.Router();
@@ -32,14 +32,14 @@ authRouter.post("/register", checkUserData, checkUser, async (req, res) => {
 
 authRouter.post("/login", async(req, res) => {
     try{
-        const user = await findUserByUsername(req.body.username);
+        const user = await findUserbyUsername(req.body.username);
 
         const isSamePassword = await bcrypt.compare(
             req.body.password,
             user.password
         );
 
-        if(!user || isSamePassword) {
+        if(!user || !isSamePassword) {
             return res.status(401).send("Invalid login credentials");
         };
 
