@@ -1,8 +1,15 @@
 import { useState } from "react";
 import { useGetItemByIdQuery } from "../redux/api";
+import { useNavigate } from "react-router-dom";
 import ReviewList from "./ReviewList";
 import CommentList from "./CommentList";
 import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import blank from "../img/blank.jpg";
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Image from 'react-bootstrap/Image';
+import Row from 'react-bootstrap/Row';
+
 //component
 // import ItemForm from "./ItemForm";
 
@@ -38,12 +45,14 @@ function ItemDetail({ item_id, setItemSelected, token }) {
 
   const { name, description, img_url } = item;
   return (
+    
     <div>
-      <Button><a onClick={() => setItemSelected(null)}> Back</a></Button>
+     <ButtonGroup aria-label="Basic example">
+      <Button variant="secondary" size="sm"><a onClick={() => setItemSelected(null)}> Back</a></Button></ButtonGroup>
       <div>
         <h2>Name: {name}</h2>
-        <p>Description: {description}</p>
-        {/* <img src={img_url} /> */}
+        <Card.Img variant="top" height="171" width="180" src={blank} rounded />
+        <p><b>Item Description:</b> {description}</p>
         <ReviewList token={token} item_id={item.id}>
         <CommentList token={token} item_id={item.id}>
         </CommentList>

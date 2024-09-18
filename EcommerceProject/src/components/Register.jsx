@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLoginMutation, useRegisterMutation } from "../redux/api";
+import { useRegisterMutation } from "../redux/api";
 import { useNavigate } from "react-router-dom";
 import pickleavi from "../img/Pickle-Avi.jpg";
 import Button from 'react-bootstrap/Button';
@@ -19,7 +19,7 @@ function Register({ setToken }) {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(null);
   const [register] = useRegisterMutation();
-  const [login] = useLoginMutation();
+
 
   const Navigate = useNavigate ()
 
@@ -47,31 +47,12 @@ function Register({ setToken }) {
     Navigate ("/items");
   };
 
-  const handleLoginSubmit = async (evt) => {
-    evt.preventDefault();
-
-    if (form.username === "" || form.password === ""){
-      setError("Please provide a username and password");
-      return;
-    }
-
-    const {data, error } = await login(form);
-
-    if (error) {
-      setError(error);
-      return;
-    }
-
-    setToken(data.token);
-    Navigate ("/items");
-  }
 
   const { username, password } = form;
 
   return (
-    <div>
-      <h2>Register/Login For Pickle</h2>
-      <body>
+    <div><br></br>
+      <h2>Register For Pickle</h2>
       <form>
         <div class="imgcontainer">
           <img src={pickleavi} alt="Avatar" class="avatar"/>
@@ -79,6 +60,14 @@ function Register({ setToken }) {
 
         <div class="container">
         {error && <p>{error}</p>}
+        <label for="firstname">
+          <b>First Name</b>
+        </label>
+        <input type="text" name="firstname"/>
+        <label for="lastname">
+          <b>Last Name</b>
+        </label>
+        <input type="text" name="lastname"/>
         <label for="username">
          <b>Username</b></label>
           <input type="text" name="username" value={username} onChange={handleChange}/>
@@ -91,11 +80,9 @@ function Register({ setToken }) {
             onChange={handleChange}
           />
         <Button variant="link" onClick={() => setShowPassword (!showPassword)}>show password</Button>
-        <Button onClick={handleLoginSubmit}>Login</Button>
         <Button onClick={handleSubmit}>Register</Button>
         </div>
       </form>
-      </body>
     </div>
   );
 }

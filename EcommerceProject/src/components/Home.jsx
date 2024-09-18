@@ -1,5 +1,5 @@
 import review_img from "../img/reviews.jpg";
-import logo from "../img/Pickle-Logo.svg";
+import logo from "../img/Logo-white.svg";
 import logo2 from "../img/Pickle.svg";
 import '../styles/Home.css';
 

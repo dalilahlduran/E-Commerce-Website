@@ -1,25 +1,31 @@
 import { useState } from "react";
-// import { useCreateReviewMutation, useUpdateReviewMutation, useDeleteReviewMutation } from "../redux/api";
+import { useCreateReviewMutation, useUpdateReviewMutation, useDeleteReviewMutation } from "../redux/api";
 // import { useCreateReviewMutation } from "../redux/api";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
+import "../styles/Reviews.css";
+import CommentDetail from "./CommentDetail";
 
-function ReviewForm({ token, review, setIsEditing }) {
+function ReviewForm({ token, item, setIsEditing, review }) {
     const initialForm = {
-        user_id: review?.user_id || "",
-        item_id: review?.item_id || "",
-        score: review?.score || "",
+        score: review?.score || 0,
         txt: review?.txt || "",
     };
 
+    const { id } = useParams();
     const [form, updateForm] = useState(initialForm);
     const [error, setError] = useState(null);
-    // const [createReview] = useCreateReviewMutation;
-    // const [updateReview] = useUpdateReviewMutation;
-    // const [deleteReview] = useDeleteReviewMutation;
+    const [createReview] = useCreateReviewMutation();
+    const [updateReview] = useUpdateReviewMutation();
+    const [deleteReview] = useDeleteReviewMutation();
     const navigate = useNavigate();
 
-    const handleChange = ({ target }) => {
+    const removeReview = async () => {
+        await deleteReview({ id: review.id, token })
+    };
+
+    const handleChange = async ({ target }) => {
+        setError(null);
         updateForm({...form, [target.name]: target.value});
     };
 
@@ -33,10 +39,11 @@ function ReviewForm({ token, review, setIsEditing }) {
             return;
         }
 
+        updateForm({...form, score: parseFloat(form.score)});
+        console.log(review, "Review")
         const { error } = review
-        // ? await updateReview({ token, body: form, id: review.review_id })
-        await createReview({ token, body: form });
-        // : await deleteReview ({ token, body: form, review.review_id });
+        ? await updateReview({ token, body: form, id: review.review_id })
+        : await createReview({ token, body: form, id });
 
         if (error) {
             setError("Something went wrong. Please try again");
@@ -47,13 +54,13 @@ function ReviewForm({ token, review, setIsEditing }) {
             setIsEditing(false);
         }
 
-        navigate("/routes/reviews");
+        navigate(`/items/${id}`);
     };
 
     return (
         <div>
-            <h5>Add A Review</h5>
-            <form>
+            <form class="reviewform">
+            <h5><center>Add A Review</center></h5>
                 <label>
                     Score:
                     <input 
@@ -73,6 +80,8 @@ function ReviewForm({ token, review, setIsEditing }) {
                 </label>
                 <Button onClick={handleSubmit}>Pickle it</Button>
             </form>
+            <Button variant="link" onClick={removeReview}>Delete Review</Button> <Button variant="link" onClick={updateReview}>Update Review </Button>
+            <Button variant="link" onClick={() => navigate("/commentform")}>Leave a Comment</Button>
         </div>
     );
 }

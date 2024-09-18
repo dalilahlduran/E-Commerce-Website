@@ -15,13 +15,15 @@ function NavBar ({ token }) {
     console.log("NavBar token", token);
 
     return (
-        <Navbar bg="dark" data-bs-theme="dark">
+        <Navbar fixed="bottom" bg="dark" data-bs-theme="dark">
         <Container>
         <Navbar.Brand href="home">Pickle</Navbar.Brand>
         <Nav className="me-auto">
             {/* <Nav.Link href="#home">Home</Nav.Link>  |  */}
-            <Nav.Link href="/register">Login/Signup</Nav.Link> | 
+            <Nav.Link href="/register">Signup</Nav.Link>
+            <Nav.Link href="/login">Login</Nav.Link> 
             <Nav.Link href="/items">Items</Nav.Link>
+            <Nav.Link href="/commentform>"></Nav.Link>
         </Nav>
         </Container>
         </Navbar>

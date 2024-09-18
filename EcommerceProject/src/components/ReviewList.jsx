@@ -26,7 +26,6 @@ function ReviewList({ token, item_id}) {
 
   return (
     <div>
-      <ReviewForm></ReviewForm>
       {/* <button onClick={() => navigate("/routes/reviews")}>Add A Review</button> */}
       <h4>Reviews</h4>
       {isLoading ? <p>Loading...</p> : <span />}
@@ -37,8 +36,9 @@ function ReviewList({ token, item_id}) {
             {/* <button onClick={() => setReviewSelected(review)}>
               <img src={review.img_url} />
             </button> */}
-            <p>Score: {review.score} </p>
-            <p>Description: {review.txt}</p>
+            <p><b>Score:</b> {review.score} </p>
+            <p><b>Review Description:</b> {review.txt}</p>
+            <ReviewForm></ReviewForm>
           </div>
         ))}
     </div>
